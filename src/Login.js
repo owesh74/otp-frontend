@@ -9,13 +9,13 @@ function Login() {
   const navigate = useNavigate();
 
   const sendOtp = async () => {
-    await axios.post("http://localhost:3000/send-otp", { email });
+    await axios.post("https://otp-server-admb.onrender.com/send-otp", { email });
 
     setStep(2);
   };
 
   const verifyOtp = async () => {
-    const res = await axios.post("http://localhost:3000/verify-otp", { email, otp });
+    const res = await axios.post("https://otp-server-admb.onrender.com/verify-otp", { email, otp });
     if (res.data.success) {
       navigate("/profile");
     } else {
